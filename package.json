@@ -5,6 +5,7 @@
   "main": "bootstrap.js",
   "scripts": {
     "package-darwin": "$(npm bin)/electron-packager . Netflix --platform=darwin --arch=x64 --icon=./src/public/netflix.icns --app-version=0.1.0 --app-bundle-id=no.pelota.netflix --helper-bundle-id=no.pelota.netflix.helper --out ./dist --overwrite",
+    "package-win32": "$(npm bin)/electron-packager . Netflix --platform=win32 --arch=x64 --icon=./src/public/netflix.ico --app-version=0.1.0 --win32metadata.CompanyName=Pelota --win32metadata.ProductName=Netflix --out ./dist --overwrite",
     "start": "$(npm bin)/electron ."
   },
   "devDependencies": {
