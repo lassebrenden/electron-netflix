@@ -17,7 +17,6 @@ app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.903');
 * Define global variable for the main window
 */
 let mainWindow;
-let framelessWindow;
 
 
 /**
@@ -99,12 +98,9 @@ const menuTemplate = [{
       const isChecked = !menuItem.checked;
 
       if (isChecked) {
-        windowSettings.frame = true;
         createWindow();
-        framelessWindow.close();
       } else {
         createFramelessWindow();
-        mainWindow.close();
       }
     },
   }, {
@@ -153,11 +149,21 @@ const windowSettings = {
 * Create new window
 */
 const createWindow = () => {
+  if (mainWindow) {
+    mainWindow.close();
+  }
+
+  windowSettings.frame = true;
   mainWindow = new BrowserWindow(windowSettings);
   mainWindow.loadURL('https://www.netflix.com/');
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+};
+
+
+/**
+* Activate app
+*/
+const activateApp = () => {
+  createWindow();
   Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
 };
 
@@ -166,37 +172,17 @@ const createWindow = () => {
 * Create new frameless window
 */
 const createFramelessWindow = () => {
+  if (mainWindow) {
+    mainWindow.close();
+  }
+
   windowSettings.frame = false;
-  framelessWindow = new BrowserWindow(windowSettings);
-  framelessWindow.loadURL('https://www.netflix.com/');
-  framelessWindow.on('closed', () => {
-    framelessWindow = null;
-  });
-  framelessWindow.webContents.on('did-finish-load', () => {
-    framelessWindow.webContents.insertCSS('html, body { -webkit-user-select: none; -webkit-app-region: drag; }');
+  mainWindow = new BrowserWindow(windowSettings);
+  mainWindow.loadURL('https://www.netflix.com/');
+  mainWindow.webContents.on('did-finish-load', () => {
+    mainWindow.webContents.insertCSS('html, body { -webkit-user-select: none; -webkit-app-region: drag; }');
   });
 };
 
-/**
-* Quit app when the last window closes
-*/
-const deactivateApp = () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-};
 
-
-/**
-* Activate app
-*/
-const activateApp = () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
-};
-
-
-app.on('ready', createWindow);
-app.on('window-all-closed', deactivateApp);
-app.on('activate', activateApp);
+app.on('ready', activateApp);
