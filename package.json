@@ -5,22 +5,19 @@
   "main": "bootstrap.js",
   "scripts": {
     "package-darwin": "$(npm bin)/electron-packager . Netflix --platform=darwin --arch=x64 --icon=./src/public/netflix.icns --app-version=0.1.0 --app-bundle-id=no.pelota.netflix --helper-bundle-id=no.pelota.netflix.helper --out ./dist --overwrite",
-    "package-win32": "$(npm bin)/electron-packager . Netflix --platform=win32 --arch=x64 --icon=./src/public/netflix.ico --app-version=0.1.0 --win32metadata.CompanyName=Pelota --win32metadata.ProductName=Netflix --out ./dist --overwrite",
     "start": "$(npm bin)/electron ."
   },
+  "engines": {
+    "node": ">=5.0.0"
+  },
   "devDependencies": {
-    "chalk": "^1.1.3",
     "electron": "1.4.12",
     "electron-packager": "^8.4.0"
   },
   "dependencies": {
     "babel-core": "6.20.0",
     "babel-preset-es2015": "6.18.0",
-    "babel-preset-react": "6.16.0",
     "electron-compile": "4.0.3",
-    "electron-compilers": "5.0.0",
-    "react-dom": "15.4.1",
-    "react-router": "3.0.0",
-    "react": "15.4.1"
+    "electron-compilers": "5.0.0"
   }
 }
