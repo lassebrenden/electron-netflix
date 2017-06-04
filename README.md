@@ -1,4 +1,4 @@
-# [lassebrenden/netflix](https://github.com/lassebrenden/netflix)
+# [lassebrenden/electron-netflix](https://github.com/lassebrenden/electron-netflix)
 
 This is a simple Electron wrapper for Netflix.
 
@@ -9,4 +9,11 @@ Run the following commands to install, build and start the app:
 ```sh
 $ npm install
 $ npm start
+```
+
+Run the following command to create an app for macOS:
+
+```sh
+$ npm run package-darwin
+($ mv ./dist/Netflix-darwin-x64/Netflix.app /Applications)
 ```
