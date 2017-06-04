@@ -1,6 +1,6 @@
 # [lassebrenden/electron-netflix](https://github.com/lassebrenden/electron-netflix)
 
-This is a simple Electron wrapper for Netflix.
+This is a simple Electron wrapper for [netflix.com](https://www.netflix.com/).
 
 ## Getting Started
 
