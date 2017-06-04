@@ -4,7 +4,7 @@
   "private": true,
   "main": "bootstrap.js",
   "scripts": {
-    "package-darwin": "$(npm bin)/electron-packager . Netflix --platform=darwin --arch=x64 --icon=./src/public/netflix.icns --app-version=0.1.0 --app-bundle-id=no.pelota.netflix --helper-bundle-id=no.pelota.netflix.helper --out ./dist --overwrite",
+    "package-darwin": "$(npm bin)/electron-packager . Netflix --platform=darwin --arch=x64 --icon=./src/public/netflix.icns --app-version=0.1.0 --app-bundle-id=no.lassebrenden.netflix --helper-bundle-id=no.lassebrenden.netflix.helper --out ./dist --overwrite",
     "start": "$(npm bin)/electron ."
   },
   "engines": {

@@ -130,8 +130,6 @@ const menuTemplate = [{
 */
 const windowSettings = {
   backgroundColor: '#000',
-  width: 800,
-  height: 600,
   useContentSize: false,
   resizable: true,
   center: true,
@@ -155,7 +153,9 @@ const createWindow = () => {
 
   windowSettings.frame = true;
   mainWindow = new BrowserWindow(windowSettings);
+  mainWindow.maximize();
   mainWindow.loadURL('https://www.netflix.com/');
+
 };
 
 
