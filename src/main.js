@@ -185,4 +185,7 @@ const createFramelessWindow = () => {
 };
 
 
+/**
+* Activate app when ready
+*/
 app.on('ready', activateApp);
