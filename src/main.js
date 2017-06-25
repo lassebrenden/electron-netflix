@@ -155,7 +155,6 @@ const createWindow = () => {
   mainWindow = new BrowserWindow(windowSettings);
   mainWindow.maximize();
   mainWindow.loadURL('https://www.netflix.com/');
-
 };
 
 
@@ -180,7 +179,16 @@ const createFramelessWindow = () => {
   mainWindow = new BrowserWindow(windowSettings);
   mainWindow.loadURL('https://www.netflix.com/');
   mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.webContents.insertCSS('html, body { -webkit-user-select: none; -webkit-app-region: drag; } a { -webkit-app-region: no-drag; }');
+    mainWindow.webContents.insertCSS(`
+      html,
+      body {
+        -webkit-user-select: none;
+        -webkit-app-region: drag;
+      }
+      a {
+        -webkit-app-region: no-drag;
+      }
+    `);
   });
 };
 
