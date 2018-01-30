@@ -2,6 +2,8 @@
 
 This is a simple Electron wrapper for [netflix.com](https://www.netflix.com/).
 
+![Netflix for macOS](https://github.com/lassebrenden/electron-netflix/blob/master/demo.gif?raw=true)
+
 ## Getting Started
 
 Run the following commands to install, build and start the app:
